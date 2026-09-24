@@ -150,15 +150,15 @@ function AgentMessagePart({
             ) : (
               <ToolInput input={part.input} />
             )}
-            <InputRequestActions
-              canRespond={canRespond}
-              part={part}
-              onInputResponses={onInputResponses}
-            />
             {part.toolName === "bash" ? null : (
               <ToolOutput errorText={part.errorText} output={part.output} />
             )}
           </ToolContent>
+          <InputRequestActions
+            canRespond={canRespond}
+            part={part}
+            onInputResponses={onInputResponses}
+          />
         </Tool>
       );
     }
@@ -420,7 +420,7 @@ function InputRequestActions({
   );
 
   return (
-    <div className="space-y-3 rounded-md border border-yellow-500/30 bg-yellow-500/5 p-3">
+    <div className="mt-3 space-y-3 rounded-md border border-yellow-500/30 bg-yellow-500/5 p-3">
       <p className="text-muted-foreground text-sm">{inputRequest.prompt}</p>
       {inputResponse ? (
         <p className="font-medium text-sm">
